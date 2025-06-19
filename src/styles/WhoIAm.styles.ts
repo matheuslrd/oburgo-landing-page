@@ -67,7 +67,7 @@ export const HighlightBox = styled.div`
 export const ImageContainer = styled.div`
     position: relative;
     height: 100%;
-    
+
     img {
         width: 100%;
         height: 100%;

@@ -41,7 +41,7 @@ const QuemSomos = () => {
                         </HighlightBox>
                     </TextContent>
                     <ImageContainer>
-                        <img src="img/burgo.png" alt="O Burgo Hamburgueria" />
+                        <img src='img/burgo.png' alt='O Burgo Hamburgueria' />
                     </ImageContainer>
                 </Content>
             </Container>

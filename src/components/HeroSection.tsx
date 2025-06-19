@@ -49,7 +49,7 @@ const HeroSection = () => {
                 </TextContent>
 
                 <HeroImage>
-                            <img src='img/oburgo-logotype.png' />
+                    <img src='img/oburgo-logotype.png' />
                     <NewBadge>🔥 Novo!</NewBadge>
                 </HeroImage>
             </HeroContent>
