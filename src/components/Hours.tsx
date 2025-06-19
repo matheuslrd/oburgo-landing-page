@@ -16,13 +16,17 @@ import {
 
 const Horarios = () => {
     const isOpen = () => {
-        const now = new Date();
-        const hour = now.getHours();
-        const day = now.getDay();
+        const date = new Date();
+        const day = date.getDay();
+        const hour = date.getHours();
 
-        if (day === 0) return false;
-
-        return (hour >= 12 && hour < 15) || (hour >= 18 && hour < 23);
+        if (day === 1) return false;
+        
+        if (day === 0) {
+            return hour >= 19 && hour < 23;
+        }
+        
+        return hour >= 19 && (hour < 24 || hour === 0);
     };
 
     return (
@@ -35,18 +39,18 @@ const Horarios = () => {
 
                     <HorariosList>
                         <HorarioItem>
-                            <Dia>Segunda a Sexta</Dia>
-                            <Horario>12h às 15h • 18h às 23h</Horario>
+                            <Dia>Segunda</Dia>
+                            <Horario>Fechado</Horario>
                         </HorarioItem>
 
                         <HorarioItem>
-                            <Dia>Sábado</Dia>
-                            <Horario>12h às 15h • 18h às 23h</Horario>
+                            <Dia>Terça a Sábado</Dia>
+                            <Horario>19h às 00h</Horario>
                         </HorarioItem>
 
                         <HorarioItem>
                             <Dia>Domingo</Dia>
-                            <Horario>Fechado</Horario>
+                            <Horario>19h às 23h</Horario>
                         </HorarioItem>
                     </HorariosList>
 
