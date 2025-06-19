@@ -14,9 +14,9 @@ import {
 } from '../styles/Contact.styles';
 
 const Contact = () => {
-    const whatsappNumber = '5511999999999';
-    const phoneNumber = '(11) 9999-9999';
-    const instagramHandle = '@suahamburgueria';
+    const whatsappNumber = '5551994962837';
+    const phoneNumber = '(51) 99496-2837';
+    const instagramHandle = '@oburgoficial';
 
     return (
         <Section id='contact'>

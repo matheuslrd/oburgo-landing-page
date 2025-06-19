@@ -37,7 +37,7 @@ const Footer = () => {
                                 📱
                             </SocialLink>
                             <SocialLink
-                                href='https://instagram.com/oburgo'
+                                href='https://instagram.com/oburgoficial'
                                 target='_blank'
                                 rel='noopener noreferrer'
                                 title='Instagram'
