@@ -26,6 +26,8 @@ const Logo = styled.div`
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    width: 35px;
+    height: 35px;
 `;
 
 const LogoIcon = styled.div`
@@ -123,7 +125,7 @@ const Header = () => {
         <HeaderContainer>
             <NavContainer>
                 <Logo>
-                    <LogoIcon>🍔</LogoIcon>
+                    <img src='img/oburgo-logotype.png' />
                     <span>OBurgo</span>
                 </Logo>
                 <NavMenu>

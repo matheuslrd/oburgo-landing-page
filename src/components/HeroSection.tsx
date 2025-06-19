@@ -205,13 +205,7 @@ const HeroSection = () => {
                 </TextContent>
 
                 <HeroImage>
-                    <ImagePlaceholder>
-                        <LogoText>
-                            🍔 SUBSTITUA PELA
-                            <br />
-                            SUA LOGO AQUI 🍔
-                        </LogoText>
-                    </ImagePlaceholder>
+                            <img src='img/oburgo-logotype.png' />
                     <NewBadge>🔥 Novo!</NewBadge>
                 </HeroImage>
             </HeroContent>

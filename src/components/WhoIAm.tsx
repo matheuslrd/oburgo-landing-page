@@ -67,6 +67,14 @@ const HighlightBox = styled.div`
 
 const ImageContainer = styled.div`
     position: relative;
+    height: 100%;
+    
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 15px;
+    }
 `;
 
 const ImagePlaceholder = styled.div`
@@ -117,11 +125,7 @@ const QuemSomos = () => {
                         </HighlightBox>
                     </TextContent>
                     <ImageContainer>
-                        <ImagePlaceholder>
-                            🍔 ESPAÇO PARA FOTO
-                            <br />
-                            DA HAMBURGUERIA 📸
-                        </ImagePlaceholder>
+                        <img src="img/burgo.png" alt="O Burgo Hamburgueria" />
                     </ImageContainer>
                 </Content>
             </Container>
