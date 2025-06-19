@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import Header from '../components/Header';
 import HeroSection from '../components/HeroSection';
-import QuemSomos from '../components/QuemSomos';
-import Contato from '../components/Contato';
-import Localizacao from '../components/Localizacao';
-import Horarios from '../components/Horarios';
+import WhoIAm from '../components/WhoIAm';
+import Contact from '../components/Contact';
+import Localization from '../components/Localization';
+import Hours from '../components/Hours';
 import Footer from '../components/Footer';
 
 const AppContainer = styled.div`
@@ -56,10 +56,10 @@ const Index = () => {
         <AppContainer>
             <Header />
             <HeroSection />
-            <QuemSomos />
-            <Contato />
-            <Localizacao />
-            <Horarios />
+            <WhoIAm />
+            <Contact />
+            <Localization />
+            <Hours />
             <Footer />
             <ScrollToTopButton onClick={scrollToTop} title='Voltar ao topo'>
                 ↑

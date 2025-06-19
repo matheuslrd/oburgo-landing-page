@@ -173,15 +173,15 @@ const NewBadge = styled.div`
 
 const HeroSection = () => {
     const scrollToContact = () => {
-        document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
     };
 
     const scrollToLocation = () => {
-        document.getElementById('localizacao')?.scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('localization')?.scrollIntoView({ behavior: 'smooth' });
     };
 
     return (
-        <HeroContainer id='inicio'>
+        <HeroContainer id='home'>
             <HeroContent>
                 <TextContent>
                     <Badge>Artesanal • Autêntico • Irresistível</Badge>

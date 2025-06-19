@@ -127,23 +127,23 @@ const Header = () => {
                     <span>OBurgo</span>
                 </Logo>
                 <NavMenu>
-                    <NavLink onClick={() => scrollToSection('inicio')}>Início</NavLink>
-                    <NavLink onClick={() => scrollToSection('quem-somos')}>Sobre Nós</NavLink>
-                    <NavLink onClick={() => scrollToSection('localizacao')}>Localização</NavLink>
-                    <NavLink onClick={() => scrollToSection('contato')}>Contato</NavLink>
+                    <NavLink onClick={() => scrollToSection('home')}>Início</NavLink>
+                    <NavLink onClick={() => scrollToSection('whoiam')}>Sobre Nós</NavLink>
+                    <NavLink onClick={() => scrollToSection('localization')}>Localização</NavLink>
+                    <NavLink onClick={() => scrollToSection('contact')}>Contato</NavLink>
                 </NavMenu>
                 <MobileMenuButton onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
                     ☰
                 </MobileMenuButton>
                 <MobileMenu isOpen={mobileMenuOpen}>
-                    <MobileNavLink onClick={() => scrollToSection('inicio')}>Início</MobileNavLink>
-                    <MobileNavLink onClick={() => scrollToSection('quem-somos')}>
+                    <MobileNavLink onClick={() => scrollToSection('home')}>Início</MobileNavLink>
+                    <MobileNavLink onClick={() => scrollToSection('whoiam')}>
                         Sobre Nós
                     </MobileNavLink>
-                    <MobileNavLink onClick={() => scrollToSection('localizacao')}>
+                    <MobileNavLink onClick={() => scrollToSection('localization')}>
                         Localização
                     </MobileNavLink>
-                    <MobileNavLink onClick={() => scrollToSection('contato')}>
+                    <MobileNavLink onClick={() => scrollToSection('contact')}>
                         Contato
                     </MobileNavLink>
                 </MobileMenu>

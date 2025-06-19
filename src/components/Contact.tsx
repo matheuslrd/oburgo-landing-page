@@ -139,13 +139,13 @@ const ContactButton = styled.a`
     }
 `;
 
-const Contato = () => {
+const Contact = () => {
     const whatsappNumber = '5511999999999';
     const phoneNumber = '(11) 9999-9999';
     const instagramHandle = '@suahamburgueria';
 
     return (
-        <Section id='contato'>
+        <Section id='contact'>
             <Container>
                 <SectionTitle>Fale Conosco</SectionTitle>
                 <SectionSubtitle>
@@ -201,4 +201,4 @@ const Contato = () => {
     );
 };
 
-export default Contato;
+export default Contact;

@@ -90,7 +90,7 @@ const ImagePlaceholder = styled.div`
 
 const QuemSomos = () => {
     return (
-        <Section id='quem-somos'>
+        <Section id='whoiam'>
             <Container>
                 <SectionTitle>Sobre Nossa História</SectionTitle>
                 <SectionSubtitle>
