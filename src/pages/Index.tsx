@@ -1,13 +1,71 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React from 'react';
+import styled from 'styled-components';
+import Header from '../components/Header';
+import HeroSection from '../components/HeroSection';
+import QuemSomos from '../components/QuemSomos';
+import Contato from '../components/Contato';
+import Localizacao from '../components/Localizacao';
+import Horarios from '../components/Horarios';
+import Footer from '../components/Footer';
+
+const AppContainer = styled.div`
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+`;
+
+const ScrollToTopButton = styled.button`
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: linear-gradient(135deg, #bd0100 0%, #d41e1e 100%);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(189, 1, 0, 0.3);
+  transition: all 0.3s ease;
+  z-index: 99;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(189, 1, 0, 0.4);
+  }
+  
+  @media (max-width: 768px) {
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+    bottom: 1rem;
+    right: 1rem;
+  }
+`;
 
 const Index = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <AppContainer>
+      <Header />
+      <HeroSection />
+      <QuemSomos />
+      <Contato />
+      <Localizacao />
+      <Horarios />
+      <Footer />
+      <ScrollToTopButton onClick={scrollToTop} title="Voltar ao topo">
+        ↑
+      </ScrollToTopButton>
+    </AppContainer>
   );
 };
 
