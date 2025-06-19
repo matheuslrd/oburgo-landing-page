@@ -3,64 +3,173 @@ import React from 'react';
 import styled from 'styled-components';
 
 const HeroContainer = styled.section`
-  background: linear-gradient(135deg, #ffffcb 0%, #fff8a3 100%);
-  padding: 4rem 0;
-  text-align: center;
+  background: linear-gradient(135deg, #bd0100 0%, #d41e1e 100%);
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
 `;
 
 const HeroContent = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  width: 100%;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+`;
+
+const TextContent = styled.div`
+  color: white;
+`;
+
+const Badge = styled.div`
+  background: #ffffcb;
+  color: #bd0100;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  display: inline-block;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 `;
 
 const HeroTitle = styled.h1`
   font-size: 3.5rem;
-  color: #bd0100;
-  margin-bottom: 1rem;
   font-weight: bold;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   
   @media (max-width: 768px) {
     font-size: 2.5rem;
   }
-  
-  @media (max-width: 480px) {
-    font-size: 2rem;
-  }
 `;
 
 const HeroSubtitle = styled.p`
-  font-size: 1.5rem;
-  color: #666;
+  font-size: 1.2rem;
+  line-height: 1.6;
   margin-bottom: 2rem;
+  opacity: 0.9;
   
   @media (max-width: 768px) {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 `;
 
-const CTAButton = styled.button`
-  background: linear-gradient(135deg, #bd0100 0%, #d41e1e 100%);
-  color: white;
+const ButtonContainer = styled.div`
+  display: flex;
+  gap: 1rem;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
+const PrimaryButton = styled.button`
+  background: #ffffcb;
+  color: #bd0100;
   border: none;
   padding: 1rem 2rem;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: bold;
   border-radius: 50px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(189, 1, 0, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(189, 1, 0, 0.4);
+    box-shadow: 0 6px 20px rgba(255, 255, 203, 0.4);
   }
+`;
+
+const SecondaryButton = styled.button`
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  
+  &:hover {
+    background: white;
+    color: #bd0100;
+    transform: translateY(-2px);
+  }
+`;
+
+const HeroImage = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   
   @media (max-width: 768px) {
-    font-size: 1rem;
-    padding: 0.8rem 1.5rem;
+    order: -1;
   }
+`;
+
+const ImagePlaceholder = styled.div`
+  width: 400px;
+  height: 400px;
+  background: rgba(255, 255, 203, 0.1);
+  border: 3px dashed #ffffcb;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffcb;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
+  transform: rotate(45deg);
+  
+  @media (max-width: 768px) {
+    width: 250px;
+    height: 250px;
+    font-size: 1rem;
+  }
+`;
+
+const LogoText = styled.div`
+  transform: rotate(-45deg);
+  padding: 2rem;
+`;
+
+const NewBadge = styled.div`
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: #ffffcb;
+  color: #bd0100;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 `;
 
 const HeroSection = () => {
@@ -68,16 +177,42 @@ const HeroSection = () => {
     document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const scrollToLocation = () => {
+    document.getElementById('localizacao')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <HeroContainer>
+    <HeroContainer id="inicio">
       <HeroContent>
-        <HeroTitle>Bem-vindos à Nossa Hamburgueria!</HeroTitle>
-        <HeroSubtitle>
-          Sabores autênticos que fazem você se sentir em casa
-        </HeroSubtitle>
-        <CTAButton onClick={scrollToContact}>
-          Entre em Contato
-        </CTAButton>
+        <TextContent>
+          <Badge>Artesanal • Autêntico • Irresistível</Badge>
+          <HeroTitle>
+            OS MELHORES<br />
+            HAMBÚRGUERES<br />
+            DE GRAVATAÍ!
+          </HeroTitle>
+          <HeroSubtitle>
+            Hambúrgueres artesanais feitos com ingredientes frescos e muito amor. 
+            Venha descobrir por que somos a hamburgueria favorita de Gravataí!
+          </HeroSubtitle>
+          <ButtonContainer>
+            <PrimaryButton onClick={scrollToContact}>
+              😋 Faça Seu Pedido
+            </PrimaryButton>
+            <SecondaryButton onClick={scrollToLocation}>
+              📍 Nossa Localização
+            </SecondaryButton>
+          </ButtonContainer>
+        </TextContent>
+        
+        <HeroImage>
+          <ImagePlaceholder>
+            <LogoText>
+              🍔 SUBSTITUA PELA<br />SUA LOGO AQUI 🍔
+            </LogoText>
+          </ImagePlaceholder>
+          <NewBadge>🔥 Novo!</NewBadge>
+        </HeroImage>
       </HeroContent>
     </HeroContainer>
   );

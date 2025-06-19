@@ -3,8 +3,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Section = styled.section`
-  padding: 4rem 0;
-  background: linear-gradient(135deg, #ffffcb 0%, #fff8a3 100%);
+  padding: 5rem 0;
+  background: #f8f9fa;
 `;
 
 const Container = styled.div`
@@ -17,7 +17,7 @@ const SectionTitle = styled.h2`
   font-size: 2.5rem;
   color: #bd0100;
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   font-weight: bold;
   
   @media (max-width: 768px) {
@@ -25,14 +25,22 @@ const SectionTitle = styled.h2`
   }
 `;
 
+const SectionSubtitle = styled.p`
+  text-align: center;
+  color: #666;
+  font-size: 1.2rem;
+  margin-bottom: 4rem;
+`;
+
 const HorariosCard = styled.div`
   background: white;
   padding: 3rem;
-  border-radius: 15px;
+  border-radius: 20px;
   text-align: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  max-width: 600px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
   margin: 0 auto;
+  border: 2px solid #f0f0f0;
 `;
 
 const HorariosTitle = styled.h3`
@@ -42,11 +50,15 @@ const HorariosTitle = styled.h3`
   font-weight: bold;
 `;
 
+const HorariosList = styled.div`
+  margin-bottom: 2rem;
+`;
+
 const HorarioItem = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 0;
+  padding: 1.2rem 0;
   border-bottom: 1px solid #eee;
   font-size: 1.1rem;
   
@@ -71,27 +83,32 @@ const Horario = styled.span`
   font-weight: bold;
 `;
 
-const StatusAberto = styled.div`
-  background: linear-gradient(135deg, #bd0100 0%, #d41e1e 100%);
+const StatusContainer = styled.div`
+  margin-top: 2rem;
+`;
+
+const StatusAberto = styled.div<{ isOpen: boolean }>`
+  background: ${props => props.isOpen 
+    ? 'linear-gradient(135deg, #28a745 0%, #20c997 100%)' 
+    : 'linear-gradient(135deg, #dc3545 0%, #e63946 100%)'
+  };
   color: white;
-  padding: 1rem 2rem;
+  padding: 1.2rem 2rem;
   border-radius: 50px;
   font-weight: bold;
   font-size: 1.2rem;
-  margin-top: 2rem;
   display: inline-block;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 `;
 
 const Horarios = () => {
   const isOpen = () => {
     const now = new Date();
     const hour = now.getHours();
-    const day = now.getDay(); // 0 = domingo, 1 = segunda, etc.
+    const day = now.getDay();
     
-    // Verifica se é domingo (fechado)
     if (day === 0) return false;
     
-    // Verifica horários de funcionamento
     return (hour >= 12 && hour < 15) || (hour >= 18 && hour < 23);
   };
 
@@ -99,27 +116,34 @@ const Horarios = () => {
     <Section id="horarios">
       <Container>
         <SectionTitle>Horários de Funcionamento</SectionTitle>
+        <SectionSubtitle>
+          Confira quando estamos prontos para atendê-lo
+        </SectionSubtitle>
         <HorariosCard>
           <HorariosTitle>🕐 Quando Estamos Abertos</HorariosTitle>
           
-          <HorarioItem>
-            <Dia>Segunda a Sexta</Dia>
-            <Horario>12h às 15h • 18h às 23h</Horario>
-          </HorarioItem>
+          <HorariosList>
+            <HorarioItem>
+              <Dia>Segunda a Sexta</Dia>
+              <Horario>12h às 15h • 18h às 23h</Horario>
+            </HorarioItem>
+            
+            <HorarioItem>
+              <Dia>Sábado</Dia>
+              <Horario>12h às 15h • 18h às 23h</Horario>
+            </HorarioItem>
+            
+            <HorarioItem>
+              <Dia>Domingo</Dia>
+              <Horario>Fechado</Horario>
+            </HorarioItem>
+          </HorariosList>
           
-          <HorarioItem>
-            <Dia>Sábado</Dia>
-            <Horario>12h às 15h • 18h às 23h</Horario>
-          </HorarioItem>
-          
-          <HorarioItem>
-            <Dia>Domingo</Dia>
-            <Horario>Fechado</Horario>
-          </HorarioItem>
-          
-          <StatusAberto>
-            {isOpen() ? '🟢 Aberto Agora!' : '🔴 Fechado no Momento'}
-          </StatusAberto>
+          <StatusContainer>
+            <StatusAberto isOpen={isOpen()}>
+              {isOpen() ? '🟢 Aberto Agora!' : '🔴 Fechado no Momento'}
+            </StatusAberto>
+          </StatusContainer>
         </HorariosCard>
       </Container>
     </Section>

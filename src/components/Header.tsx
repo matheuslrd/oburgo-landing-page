@@ -16,39 +16,71 @@ const NavContainer = styled.div`
   margin: 0 auto;
   padding: 0 1rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 `;
 
-const LogoPlaceholder = styled.div`
-  background: #ffffcb;
-  border: 3px dashed #bd0100;
-  border-radius: 12px;
-  padding: 1rem 2rem;
-  color: #bd0100;
+const Logo = styled.div`
+  color: #ffffcb;
+  font-size: 1.8rem;
   font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`;
+
+const LogoIcon = styled.div`
+  background: #ffffcb;
+  color: #bd0100;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 1.2rem;
-  text-align: center;
-  transition: all 0.3s ease;
-  
-  &:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 15px rgba(189, 1, 0, 0.2);
-  }
+`;
+
+const NavMenu = styled.nav`
+  display: flex;
+  gap: 2rem;
   
   @media (max-width: 768px) {
-    font-size: 1rem;
-    padding: 0.8rem 1.5rem;
+    display: none;
+  }
+`;
+
+const NavLink = styled.a`
+  color: #ffffcb;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  
+  &:hover {
+    color: white;
+    transform: translateY(-2px);
   }
 `;
 
 const Header = () => {
+  const scrollToSection = (sectionId: string) => {
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <HeaderContainer>
       <NavContainer>
-        <LogoPlaceholder>
-          🍔 SUBSTITUA PELA SUA LOGO AQUI 🍔
-        </LogoPlaceholder>
+        <Logo>
+          <LogoIcon>🍔</LogoIcon>
+          <span>OBurgo</span>
+        </Logo>
+        <NavMenu>
+          <NavLink onClick={() => scrollToSection('inicio')}>Início</NavLink>
+          <NavLink onClick={() => scrollToSection('quem-somos')}>Sobre Nós</NavLink>
+          <NavLink onClick={() => scrollToSection('localizacao')}>Localização</NavLink>
+          <NavLink onClick={() => scrollToSection('contato')}>Contato</NavLink>
+        </NavMenu>
       </NavContainer>
     </HeaderContainer>
   );

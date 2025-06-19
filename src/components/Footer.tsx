@@ -5,8 +5,7 @@ import styled from 'styled-components';
 const FooterContainer = styled.footer`
   background: linear-gradient(135deg, #bd0100 0%, #d41e1e 100%);
   color: white;
-  padding: 2rem 0 1rem;
-  text-align: center;
+  padding: 3rem 0 1.5rem;
 `;
 
 const Container = styled.div`
@@ -16,45 +15,81 @@ const Container = styled.div`
 `;
 
 const FooterContent = styled.div`
-  margin-bottom: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+  margin-bottom: 2rem;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
 `;
+
+const FooterSection = styled.div``;
 
 const FooterTitle = styled.h3`
   font-size: 1.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   font-weight: bold;
 `;
 
 const FooterText = styled.p`
   font-size: 1rem;
   line-height: 1.6;
-  margin-bottom: 1rem;
   opacity: 0.9;
+  margin-bottom: 1rem;
 `;
 
 const SocialLinks = styled.div`
   display: flex;
-  justify-content: center;
   gap: 1rem;
-  margin: 1.5rem 0;
+  
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
 `;
 
 const SocialLink = styled.a`
+  background: rgba(255, 255, 203, 0.2);
   color: #ffffcb;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 1.5rem;
   text-decoration: none;
   transition: all 0.3s ease;
   
   &:hover {
-    transform: scale(1.2);
-    color: white;
+    background: #ffffcb;
+    color: #bd0100;
+    transform: translateY(-3px);
+  }
+`;
+
+const ContactInfo = styled.div`
+  
+`;
+
+const ContactItem = styled.p`
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  
+  @media (max-width: 768px) {
+    justify-content: center;
   }
 `;
 
 const Copyright = styled.div`
   border-top: 1px solid rgba(255, 255, 203, 0.3);
-  padding-top: 1rem;
-  margin-top: 1rem;
+  padding-top: 1.5rem;
+  margin-top: 2rem;
+  text-align: center;
   font-size: 0.9rem;
   opacity: 0.8;
 `;
@@ -66,41 +101,60 @@ const Footer = () => {
     <FooterContainer>
       <Container>
         <FooterContent>
-          <FooterTitle>🍔 Nossa Hamburgueria</FooterTitle>
-          <FooterText>
-            Sabores autênticos que fazem você se sentir em casa.
-            <br />
-            Venha nos visitar e faça parte da nossa família!
-          </FooterText>
+          <FooterSection>
+            <FooterTitle>🍔 OBurgo</FooterTitle>
+            <FooterText>
+              Sabores autênticos que fazem você se sentir em casa.
+              Venha nos visitar e faça parte da nossa família!
+            </FooterText>
+            <SocialLinks>
+              <SocialLink 
+                href="https://wa.me/5511999999999" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                title="WhatsApp"
+              >
+                📱
+              </SocialLink>
+              <SocialLink 
+                href="https://instagram.com/suahamburgueria" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                title="Instagram"
+              >
+                📸
+              </SocialLink>
+              <SocialLink 
+                href="tel:(11)999999999"
+                title="Telefone"
+              >
+                📞
+              </SocialLink>
+            </SocialLinks>
+          </FooterSection>
           
-          <SocialLinks>
-            <SocialLink 
-              href="https://wa.me/5511999999999" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              title="WhatsApp"
-            >
-              📱
-            </SocialLink>
-            <SocialLink 
-              href="https://instagram.com/suahamburgueria" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              title="Instagram"
-            >
-              📸
-            </SocialLink>
-            <SocialLink 
-              href="tel:(11)999999999"
-              title="Telefone"
-            >
-              📞
-            </SocialLink>
-          </SocialLinks>
+          <FooterSection>
+            <FooterTitle>Contato</FooterTitle>
+            <ContactInfo>
+              <ContactItem>📞 (11) 9999-9999</ContactItem>
+              <ContactItem>📱 WhatsApp disponível</ContactItem>
+              <ContactItem>📧 contato@oburgo.com.br</ContactItem>
+              <ContactItem>📍 Gravataí, RS</ContactItem>
+            </ContactInfo>
+          </FooterSection>
+          
+          <FooterSection>
+            <FooterTitle>Horários</FooterTitle>
+            <ContactInfo>
+              <ContactItem>🕐 Segunda a Sexta: 12h-15h e 18h-23h</ContactItem>
+              <ContactItem>🕐 Sábado: 12h-15h e 18h-23h</ContactItem>
+              <ContactItem>🕐 Domingo: Fechado</ContactItem>
+            </ContactInfo>
+          </FooterSection>
         </FooterContent>
         
         <Copyright>
-          © {currentYear} Hamburgueria. Todos os direitos reservados.
+          © {currentYear} OBurgo - Hamburgueria. Todos os direitos reservados.
           <br />
           Desenvolvido com ❤️ para levar sabor até você!
         </Copyright>
