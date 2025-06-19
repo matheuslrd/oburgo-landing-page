@@ -39,7 +39,27 @@ const ContactGrid = styled.div`
   margin-top: 2rem;
 `;
 
-const ContactCard = styled.a`
+const ContactCard = styled.div`
+  background: #f8f9fa;
+  padding: 2.5rem 2rem;
+  border-radius: 20px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  
+  &:hover {
+    transform: translateY(-10px);
+    border-color: #bd0100;
+    box-shadow: 0 15px 35px rgba(189, 1, 0, 0.15);
+  }
+`;
+
+const PhoneCard = styled.a`
   background: #f8f9fa;
   padding: 2.5rem 2rem;
   border-radius: 20px;
@@ -86,10 +106,6 @@ const ContactIcon = styled.div`
   font-size: 3.5rem;
   margin-bottom: 1.5rem;
   transition: transform 0.3s ease;
-  
-  ${ContactCard}:hover & {
-    transform: scale(1.1);
-  }
 `;
 
 const ContactTitle = styled.h3`
@@ -105,6 +121,23 @@ const ContactInfo = styled.p`
   font-size: 1.1rem;
   line-height: 1.6;
   transition: color 0.3s ease;
+  margin-bottom: 1.5rem;
+`;
+
+const ContactButton = styled.a`
+  background: linear-gradient(135deg, #bd0100 0%, #d41e1e 100%);
+  color: white;
+  padding: 0.8rem 2rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-top: auto;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(189, 1, 0, 0.3);
+  }
 `;
 
 const Contato = () => {
@@ -120,11 +153,7 @@ const Contato = () => {
           Estamos sempre prontos para atendê-lo da melhor forma
         </SectionSubtitle>
         <ContactGrid>
-          <ContactCard 
-            href={`https://wa.me/${whatsappNumber}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <ContactCard>
             <ContactIcon>📱</ContactIcon>
             <ContactTitle>WhatsApp</ContactTitle>
             <ContactInfo>
@@ -132,9 +161,16 @@ const Contato = () => {
               <br />
               Atendimento rápido e personalizado
             </ContactInfo>
+            <ContactButton 
+              href={`https://wa.me/${whatsappNumber}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Enviar Mensagem
+            </ContactButton>
           </ContactCard>
 
-          <ContactCard href={`tel:${phoneNumber}`}>
+          <PhoneCard href={`tel:${phoneNumber}`}>
             <ContactIcon>📞</ContactIcon>
             <ContactTitle>Telefone</ContactTitle>
             <ContactInfo>
@@ -142,13 +178,9 @@ const Contato = () => {
               <br />
               Ligue e tire suas dúvidas
             </ContactInfo>
-          </ContactCard>
+          </PhoneCard>
 
-          <ContactCard 
-            href={`https://instagram.com/${instagramHandle.replace('@', '')}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <ContactCard>
             <ContactIcon>📸</ContactIcon>
             <ContactTitle>Instagram</ContactTitle>
             <ContactInfo>
@@ -156,6 +188,13 @@ const Contato = () => {
               <br />
               Acompanhe nossas novidades e promoções!
             </ContactInfo>
+            <ContactButton 
+              href={`https://instagram.com/${instagramHandle.replace('@', '')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Seguir no Instagram
+            </ContactButton>
           </ContactCard>
         </ContactGrid>
       </Container>

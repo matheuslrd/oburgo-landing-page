@@ -41,9 +41,21 @@ body {
   transition: all 0.3s ease;
 }
 
-/* Melhorar a aparência dos botões */
+/* Melhorar a aparência dos botões - mais suaves e menos altos */
 button {
   font-family: inherit;
+  border-radius: 25px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Melhorar a aparência dos links */
@@ -108,11 +120,21 @@ img {
   html {
     font-size: 14px;
   }
+  
+  button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 480px) {
   html {
     font-size: 13px;
+  }
+  
+  button {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
   }
 }
 
@@ -134,4 +156,10 @@ button:focus,
 a:focus {
   outline: 2px solid var(--primary-red);
   outline-offset: 2px;
+}
+
+/* Suavizar bordas de cards e elementos */
+.card, .contact-card {
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }

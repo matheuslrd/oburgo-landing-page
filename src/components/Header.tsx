@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const HeaderContainer = styled.header`
@@ -50,6 +49,55 @@ const NavMenu = styled.nav`
   }
 `;
 
+const MobileMenuButton = styled.button`
+  display: none;
+  background: none;
+  border: none;
+  color: #ffffcb;
+  font-size: 1.5rem;
+  cursor: pointer;
+  
+  @media (max-width: 768px) {
+    display: block;
+  }
+`;
+
+const MobileMenu = styled.div<{ isOpen: boolean }>`
+  display: none;
+  
+  @media (max-width: 768px) {
+    display: ${props => props.isOpen ? 'block' : 'none'};
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, #bd0100 0%, #d41e1e 100%);
+    box-shadow: 0 4px 10px rgba(189, 1, 0, 0.3);
+    padding: 1rem;
+    z-index: 99;
+  }
+`;
+
+const MobileNavLink = styled.a`
+  display: block;
+  color: #ffffcb;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 203, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  
+  &:hover {
+    color: white;
+    background: rgba(255, 255, 203, 0.1);
+  }
+  
+  &:last-child {
+    border-bottom: none;
+  }
+`;
+
 const NavLink = styled.a`
   color: #ffffcb;
   text-decoration: none;
@@ -64,8 +112,11 @@ const NavLink = styled.a`
 `;
 
 const Header = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    setMobileMenuOpen(false); // Fecha o menu após navegar
   };
 
   return (
@@ -81,6 +132,15 @@ const Header = () => {
           <NavLink onClick={() => scrollToSection('localizacao')}>Localização</NavLink>
           <NavLink onClick={() => scrollToSection('contato')}>Contato</NavLink>
         </NavMenu>
+        <MobileMenuButton onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+          ☰
+        </MobileMenuButton>
+        <MobileMenu isOpen={mobileMenuOpen}>
+          <MobileNavLink onClick={() => scrollToSection('inicio')}>Início</MobileNavLink>
+          <MobileNavLink onClick={() => scrollToSection('quem-somos')}>Sobre Nós</MobileNavLink>
+          <MobileNavLink onClick={() => scrollToSection('localizacao')}>Localização</MobileNavLink>
+          <MobileNavLink onClick={() => scrollToSection('contato')}>Contato</MobileNavLink>
+        </MobileMenu>
       </NavContainer>
     </HeaderContainer>
   );

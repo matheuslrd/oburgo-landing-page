@@ -94,6 +94,26 @@ const Copyright = styled.div`
   opacity: 0.8;
 `;
 
+const DeveloperCredit = styled.div`
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 203, 0.2);
+  font-size: 0.85rem;
+  opacity: 0.7;
+`;
+
+const DeveloperLink = styled.a`
+  color: #ffffcb;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    color: white;
+    text-decoration: underline;
+  }
+`;
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
@@ -157,6 +177,18 @@ const Footer = () => {
           © {currentYear} OBurgo - Hamburgueria. Todos os direitos reservados.
           <br />
           Desenvolvido com ❤️ para levar sabor até você!
+          
+          <DeveloperCredit>
+            Website desenvolvido por{' '}
+            <DeveloperLink 
+              href="https://github.com/matheuslaurindo" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              Matheus Laurindo
+            </DeveloperLink>
+            {' '}- Desenvolvedor Web
+          </DeveloperCredit>
         </Copyright>
       </Container>
     </FooterContainer>
