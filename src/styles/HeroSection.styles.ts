@@ -123,9 +123,24 @@ export const HeroImage = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+    
+    img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+    }
 
     @media (max-width: 768px) {
         order: -1;
+        max-width: 280px;
+    }
+    
+    @media (max-width: 480px) {
+        max-width: 240px;
     }
 `;
 

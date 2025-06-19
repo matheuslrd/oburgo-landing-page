@@ -24,6 +24,11 @@ export const ScrollToTopButton = styled.button`
     box-shadow: 0 4px 15px rgba(189, 1, 0, 0.3);
     transition: all 0.3s ease;
     z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    padding-bottom: 2px; /* Ajuste fino para compensar a tipografia */
 
     &:hover {
         transform: translateY(-2px);
