@@ -78,7 +78,7 @@ const Footer = () => {
                     <DeveloperCredit>
                         Website desenvolvido por{' '}
                         <DeveloperLink
-                            href='https://github.com/matheuslaurindo'
+                            href='https://github.com/matheuslrd'
                             target='_blank'
                             rel='noopener noreferrer'
                         >

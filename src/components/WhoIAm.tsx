@@ -23,20 +23,21 @@ const QuemSomos = () => {
                 <Content>
                     <TextContent>
                         <Paragraph>
-                            Somos uma hamburgueria familiar que nasceu da paixão por criar
-                            experiências gastronômicas únicas e acolhedoras. Cada hambúrguer é
-                            preparado com ingredientes frescos e selecionados, porque acreditamos
-                            que você merece o melhor.
+                            Nascemos da união de dois primos que se juntaram
+                            para criar a melhor hamburgueria de Gravataí. Fundada em abril de 2021,
+                            a OBurgo rapidamente se tornou uma referência local em hambúrgueres artesanais
+                            de qualidade e atendimento acolhedor.
                         </Paragraph>
                         <Paragraph>
-                            Nossa missão é simples: oferecer sabores autênticos em um ambiente
-                            descontraído, onde cada cliente se sinta parte da nossa família. Aqui,
-                            não servimos apenas hambúrgueres, criamos momentos especiais.
+                            Nossa jornada teve uma pausa quando o negócio foi vendido para terceiros em 2023.
+                            Mas a história não terminaria ali - em 2025, os primeiros idealizadores da OBurgo
+                            retomaram o comando, trazendo de volta a essência e os sabores que conquistaram
+                            Gravataí desde o início.
                         </Paragraph>
                         <HighlightBox>
                             <strong>
-                                "Venha conhecer nosso espaço e descobrir por que somos a
-                                hamburgueria preferida do bairro!"
+                                "Estamos de volta às nossas raízes, com o mesmo compromisso de qualidade
+                                e a mesma paixão pelo hambúrguer perfeito!"
                             </strong>
                         </HighlightBox>
                     </TextContent>
